@@ -17,6 +17,7 @@ app.get('/', (req,res) => {
 app.post('/readPython', (req, res) => {
     var dataToSend;
     const python = spawn('python3',['public/script.py']);
+    console.log(req.body);
 
     python.stdout.on('data', (data) => {
         dataToSend = data.toString();
@@ -28,9 +29,8 @@ app.post('/readPython', (req, res) => {
     })
 
     python.on('exit', (code) => {
-        console.log(`child process exited with code ${code}, ${dataToSend}`);
         res.json({
-            messageResponse: `djaida ${dataToSend}`
+            messageResponse: `${dataToSend}`
         });
     })
 })

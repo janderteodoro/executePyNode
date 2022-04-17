@@ -1,5 +1,3 @@
 import sys 
-
-print('qualquer coisa') 
-
+print('HELOO')
 sys.stdout.flush()
